@@ -1,0 +1,31 @@
+# Django
+django>=4.2,<5.0
+djangorestframework>=3.14,<4.0
+django-cors-headers>=4.3,<5.0
+channels>=4.0,<5.0
+channels-redis>=4.1,<5.0
+daphne>=4.0,<5.0
+
+# MongoDB
+mongoengine>=0.28,<1.0
+
+# Authentication
+PyJWT>=2.8,<3.0
+argon2-cffi>=23.1,<24.0
+
+# Redis
+redis>=5.0,<6.0
+
+# AI / LLM
+crewai>=0.41,<1.0
+langchain-openai>=0.1.0
+pydantic>=2.5,<3.0
+
+# HTTP Client (for OpenRouter API)
+httpx>=0.27,<1.0
+
+# Task scheduling
+celery>=5.3,<6.0
+
+# Utilities
+python-dotenv>=1.0,<2.0

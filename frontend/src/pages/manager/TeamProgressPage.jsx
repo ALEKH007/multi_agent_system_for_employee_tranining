@@ -34,12 +34,12 @@ export default function TeamProgressPage() {
         <div className="space-y-8 animate-fade-in">
             <header className="flex justify-between items-end">
                 <div>
-                    <h1 className="text-3xl font-display font-bold text-white mb-2">Team Progress</h1>
-                    <p className="text-slate-400">Monitor your direct reports' onboarding and training.</p>
+                    <h1 className="text-3xl font-display font-bold text-slate-900 mb-2">Team Progress</h1>
+                    <p className="text-slate-500">Monitor your direct reports' onboarding and training.</p>
                 </div>
                 <button 
                     onClick={() => alert("Downloading team training report CSV...")}
-                    className="px-4 py-2 bg-slate-800 text-white rounded-lg border border-slate-700 hover:bg-slate-700 active:scale-95 transition-all text-sm font-medium cursor-pointer"
+                    className="px-4 py-2 bg-slate-900 text-white rounded-lg border border-slate-900 hover:bg-slate-800 active:scale-95 transition-all text-sm font-medium cursor-pointer"
                 >
                     Download Report
                 </button>
@@ -47,8 +47,8 @@ export default function TeamProgressPage() {
 
             <div className="glass-card overflow-hidden">
                 <div className="overflow-x-auto">
-                    <table className="w-full text-left text-sm text-slate-300">
-                        <thead className="bg-slate-900/50 text-slate-400 uppercase text-xs">
+                    <table className="w-full text-left text-sm text-slate-600">
+                        <thead className="bg-slate-100 text-slate-600 uppercase text-xs">
                             <tr>
                                 <th className="px-6 py-4 font-semibold">Employee</th>
                                 <th className="px-6 py-4 font-semibold">Role</th>
@@ -57,19 +57,19 @@ export default function TeamProgressPage() {
                                 <th className="px-6 py-4 font-semibold text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-800/50">
+                        <tbody className="divide-y divide-slate-200">
                             {!teamData ? (
                                 <tr>
                                     <td colSpan="5" className="px-6 py-8 text-center text-slate-500">Loading team data...</td>
                                 </tr>
                             ) : (
                                 teamData.map((emp) => (
-                                    <tr key={emp.id} className="hover:bg-slate-800/20 transition-colors">
-                                        <td className="px-6 py-4 font-medium text-white">{emp.name}</td>
+                                    <tr key={emp.id} className="hover:bg-slate-50 transition-colors">
+                                        <td className="px-6 py-4 font-medium text-slate-900">{emp.name}</td>
                                         <td className="px-6 py-4">{emp.role}</td>
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-full bg-slate-700 rounded-full h-2 max-w-[150px]">
+                                                <div className="w-full bg-slate-200 rounded-full h-2 max-w-[150px]">
                                                     <div 
                                                         className={`h-2 rounded-full ${emp.progress === 100 ? 'bg-emerald-500' : 'bg-indigo-500'}`} 
                                                         style={{ width: `${emp.progress}%` }}
@@ -79,14 +79,14 @@ export default function TeamProgressPage() {
                                             </div>
                                         </td>
                                         <td className="px-6 py-4">
-                                            {emp.status === 'on_track' && <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> On Track</span>}
-                                            {emp.status === 'behind' && <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-medium border border-amber-500/20"><div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div> Behind</span>}
-                                            {emp.status === 'completed' && <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-medium border border-blue-500/20"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Completed</span>}
+                                            {emp.status === 'on_track' && <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-medium border border-emerald-200"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> On Track</span>}
+                                            {emp.status === 'behind' && <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-50 text-amber-700 text-xs font-medium border border-amber-200"><div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div> Behind</span>}
+                                            {emp.status === 'completed' && <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-medium border border-blue-200"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Completed</span>}
                                         </td>
                                         <td className="px-6 py-4 text-right">
                                             <button 
                                                 onClick={() => alert(`Details for ${emp.name}:\nRole: ${emp.role}\nProgress: ${emp.progress}%\nStatus: ${emp.status}`)}
-                                                className="text-indigo-400 hover:text-indigo-300 font-medium text-xs transition-colors cursor-pointer"
+                                                className="text-indigo-600 hover:text-indigo-700 font-medium text-xs transition-colors cursor-pointer"
                                             >
                                                 View Details
                                             </button>
